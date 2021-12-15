@@ -33,7 +33,13 @@ public class Led_Subsystem extends SubsystemBase {
       led.setData(buffer);
     }
   }
-
+  public void setMor(){
+    stopLED();
+    for (var i = 0; i < buffer.getLength(); i++) {
+      buffer.setRGB(i, 96, 0, 128);
+      led.setData(buffer);
+    }
+  }
   public void rightLED(int red, int green, int blue) {
     stopLED();
     for (var i =10; i <= 17; i++) {

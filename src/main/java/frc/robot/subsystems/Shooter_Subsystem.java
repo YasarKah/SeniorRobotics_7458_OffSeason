@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.MotorConstants;
 
 public class Shooter_Subsystem extends SubsystemBase {
-  private final WPI_VictorSPX m_shooter_MotorLeft = new WPI_VictorSPX(MotorConstants.kShooter_Motor_PortLeft);
-  private final WPI_VictorSPX m_shooter_MotorRight = new WPI_VictorSPX(MotorConstants.kShooter_Motor_PortRight);
+  public final static WPI_VictorSPX m_shooter_MotorLeft = new WPI_VictorSPX(MotorConstants.kShooter_Motor_PortLeft);
+  public final static WPI_VictorSPX m_shooter_MotorRight = new WPI_VictorSPX(MotorConstants.kShooter_Motor_PortRight);
   private boolean shooter_state = false;
 
   public Shooter_Subsystem() {

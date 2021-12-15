@@ -12,6 +12,7 @@ import frc.robot.commands.ConveyorCommand;
 import frc.robot.commands.ElevatorCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.LockCommand;
+import frc.robot.commands.ReverseCommand;
 import frc.robot.commands.ShootCommand;
 import frc.robot.commands.TeleDriveCommand;
 import frc.robot.subsystems.Conveyor_Subsystem;
@@ -20,6 +21,7 @@ import frc.robot.subsystems.Elevator_Subsystem;
 import frc.robot.subsystems.Intake_Subsystem;
 import frc.robot.subsystems.Led_Subsystem;
 import frc.robot.subsystems.Lock_Subsystem;
+import frc.robot.subsystems.Reverse_Subsystem;
 import frc.robot.subsystems.Shooter_Subsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -34,7 +36,8 @@ public class RobotContainer {
   public final Elevator_Subsystem m_elevator= new Elevator_Subsystem();
   public final Lock_Subsystem m_lock = new Lock_Subsystem();
   public final Led_Subsystem m_led = new Led_Subsystem();
-
+  public final Reverse_Subsystem m_reverse = new Reverse_Subsystem();
+  
   Joystick driver_Controller = new Joystick(0);
   public static final ShuffleboardTab driverTab = Shuffleboard.getTab("Robot Statistics");
 
@@ -46,6 +49,7 @@ public class RobotContainer {
     new JoystickButton(driver_Controller, JoystickConstants.A).whileHeld(new ConveyorCommand(m_conveyor));
     new JoystickButton(driver_Controller, JoystickConstants.Y).whileHeld(new LockCommand(m_lock));
     new JoystickButton(driver_Controller, JoystickConstants.R1).whileHeld(new ElevatorCommand(m_elevator));
+    new JoystickButton(driver_Controller, JoystickConstants.L1).whileHeld(new ReverseCommand(m_reverse));
   }
   public RobotContainer() {
     m_drive.setDefaultCommand(new TeleDriveCommand(driver_Controller, m_drive, m_led));
