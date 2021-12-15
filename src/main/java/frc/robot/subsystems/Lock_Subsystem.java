@@ -18,9 +18,11 @@ public class Lock_Subsystem extends SubsystemBase {
   public void key(){
     sayac++;
     if(sayac >= 3){
+      System.out.println("Tırmanma Kilidinin KALKTIIIII");
       lockStatus = true;
     }
     else{
+      System.out.println("Tırmanma Kilidinin kalkmasına: " + (2 - sayac));
       lockStatus = false;
     }
   }

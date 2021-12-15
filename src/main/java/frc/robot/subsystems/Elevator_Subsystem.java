@@ -20,4 +20,7 @@ public class Elevator_Subsystem extends SubsystemBase {
   public void Winch_Up(){
     m_Elevator.set(1);
   }
+  public void Winch_Stop(){
+    m_Elevator.set(0);
+  }
 }

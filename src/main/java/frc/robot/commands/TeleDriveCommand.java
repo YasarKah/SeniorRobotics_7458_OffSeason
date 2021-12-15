@@ -7,17 +7,21 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drive_Subsystem;
+import frc.robot.subsystems.Led_Subsystem;
 import frc.robot.Constants.JoystickConstants;
 
 public class TeleDriveCommand extends CommandBase {
   private final Joystick driver_Controller;
   private final Drive_Subsystem drive_Subsystem;
+  private final Led_Subsystem led_Subsystem;
 
   
-  public TeleDriveCommand(Joystick driver_Controller, Drive_Subsystem drive_Subsystem) {
+  public TeleDriveCommand(Joystick driver_Controller, Drive_Subsystem drive_Subsystem, Led_Subsystem led_Subsystem) {
     this.driver_Controller = driver_Controller;
     this.drive_Subsystem = drive_Subsystem;
+    this.led_Subsystem = led_Subsystem;
     addRequirements(drive_Subsystem);
+    addRequirements(led_Subsystem);
   }
 
   @Override
@@ -34,19 +38,18 @@ public class TeleDriveCommand extends CommandBase {
 
   private double getRotation() {
     double rotation = driver_Controller.getRawAxis(JoystickConstants.RightAxisX);
-    /*if(rotation > 0.1){
-      //led.rightLED(255, 50, 0);
+    if(rotation > 0.1){
+      led_Subsystem.rightLED(255, 50, 0);
       System.out.println("Rotation > 0");
     }
     else if(rotation < -0.1){
-      //led.leftLED(255, 50, 0);
+      led_Subsystem.leftLED(255, 50, 0);
       System.out.println("Rotation < 0 ");
     }
     else{
-      //led.rightLED(0, 0, 0);
-      //led.leftLED(0, 0, 0);
+      led_Subsystem.startLED();
       System.out.println("Rotation = 0");
-    }*/
+    }
     return rotation;
   }
 

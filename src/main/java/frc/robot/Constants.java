@@ -26,9 +26,26 @@ public final class Constants {
         
         public static final int kShooter_Motor_PortLeft = 3;
         public static final int kShooter_Motor_PortRight = 6;
+
+        public static final int Led_Port = 9;
+        public static final int Led_Buffer = 18;
     }
     public static final class JoystickConstants {
-        public static final int A = 1;
+        public static final int A = 2;
+        public static final int B = 3;
+        public static final int X = 1;
+        public static final int Y = 4;
+
+        public static final int L1 = 5;
+        public static final int R1 = 6;
+
+        public static final int LeftAxisX = 0;
+        public static final int LeftAxisY = 1;
+        public static final int RightAxisX = 2;
+        public static final int RightAxisY = 5;
+
+        //Alt Kısım Logitech Joysticki
+        /*public static final int A = 1;
         public static final int B = 2;
         public static final int X = 3;
         public static final int Y = 4;
@@ -39,6 +56,6 @@ public final class Constants {
         public static final int LeftAxisX = 0;
         public static final int LeftAxisY = 1;
         public static final int RightAxisX = 4;
-        public static final int RightAxisY = 5;
+        public static final int RightAxisY = 5;*/
     }
 }
