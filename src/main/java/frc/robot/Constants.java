@@ -43,6 +43,7 @@ public final class Constants {
         public static final int LeftAxisY = 1;
         public static final int RightAxisX = 2;
         public static final int RightAxisY = 5;
+        public static final int R2 = 4;
 
         //Alt Kısım Logitech Joysticki
         /*public static final int A = 1;

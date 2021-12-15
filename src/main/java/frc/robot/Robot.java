@@ -44,11 +44,11 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
+    m_robotContainer.m_led.setMor();
     m_robotContainer.m_shooter.shoot_Stop();
     m_robotContainer.m_intake.intake_Stop();
     m_robotContainer.m_conveyor.Conveyor_Stop();
     m_robotContainer.m_elevator.Winch_Stop();
-    m_robotContainer.m_led.setMor();
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }

@@ -11,10 +11,10 @@ import frc.robot.subsystems.Led_Subsystem;
 import frc.robot.Constants.JoystickConstants;
 
 public class TeleDriveCommand extends CommandBase {
-  private final Joystick driver_Controller;
+  public final Joystick driver_Controller;
   private final Drive_Subsystem drive_Subsystem;
   private final Led_Subsystem led_Subsystem;
-
+  public static double Rotasyon;
   
   public TeleDriveCommand(Joystick driver_Controller, Drive_Subsystem drive_Subsystem, Led_Subsystem led_Subsystem) {
     this.driver_Controller = driver_Controller;
@@ -35,20 +35,17 @@ public class TeleDriveCommand extends CommandBase {
     double speed =-driver_Controller.getRawAxis(JoystickConstants.LeftAxisY);
     return speed;
   }
-
   private double getRotation() {
     double rotation = driver_Controller.getRawAxis(JoystickConstants.RightAxisX);
-    if(rotation > 0.1){
+    Rotasyon = rotation;
+    if(rotation > 0.2){
       led_Subsystem.rightLED(255, 50, 0);
-      System.out.println("Rotation > 0");
     }
-    else if(rotation < -0.1){
+    else if(rotation < -0.2){
       led_Subsystem.leftLED(255, 50, 0);
-      System.out.println("Rotation < 0 ");
     }
     else{
-      led_Subsystem.startLED();
-      System.out.println("Rotation = 0");
+      Led_Subsystem.stopLED();
     }
     return rotation;
   }
@@ -57,7 +54,6 @@ public class TeleDriveCommand extends CommandBase {
   @Override
   public void end(boolean interrupted) {}
 
-  // Returns true when the command should end.
   @Override
   public boolean isFinished() {
     return false;

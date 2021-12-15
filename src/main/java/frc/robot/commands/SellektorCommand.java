@@ -5,32 +5,31 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.Conveyor_Subsystem;
+import frc.robot.subsystems.Led_Subsystem;
+import frc.robot.subsystems.Sellektor_Subsystem;
 
-public class ConveyorCommand extends CommandBase {
+public class SellektorCommand extends CommandBase {
 
-  private final Conveyor_Subsystem Conveyor_Subsystem;
+  private final Sellektor_Subsystem Sellektor_Subsystem;
 
-  public ConveyorCommand(Conveyor_Subsystem conveyor_Subsystem) {
+  public SellektorCommand(Sellektor_Subsystem Sellektor_Subsystem) {
 
-    this.Conveyor_Subsystem = conveyor_Subsystem;
-    addRequirements(conveyor_Subsystem);
-    
+    this.Sellektor_Subsystem = Sellektor_Subsystem;
+    addRequirements(Sellektor_Subsystem);
+
   }
 
   @Override
-  public void initialize() {
-    
-  }
+  public void initialize() {}
 
   @Override
   public void execute() {
-    Conveyor_Subsystem.Conveyor_In();
+    Sellektor_Subsystem.Uzunlar();
   }
 
   @Override
   public void end(boolean interrupted) {
-    Conveyor_Subsystem.Conveyor_Stop();
+    Sellektor_Subsystem.UzunlarOff();
   }
 
   @Override

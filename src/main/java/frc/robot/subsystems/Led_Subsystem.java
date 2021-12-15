@@ -11,8 +11,8 @@ import frc.robot.Constants.MotorConstants;
 
 public class Led_Subsystem extends SubsystemBase {
 
-  public AddressableLED led = new AddressableLED(MotorConstants.Led_Port);;
-  public AddressableLEDBuffer buffer = new AddressableLEDBuffer(MotorConstants.Led_Buffer);
+  public static AddressableLED led = new AddressableLED(MotorConstants.Led_Port);;
+  public static AddressableLEDBuffer buffer = new AddressableLEDBuffer(MotorConstants.Led_Buffer);
 
   public Led_Subsystem() {
     led.setLength(buffer.getLength());
@@ -23,25 +23,30 @@ public class Led_Subsystem extends SubsystemBase {
   public void startLED() {
     for (var i = 0; i < buffer.getLength(); i++) {
       buffer.setRGB(i, 255, 255, 0);
-      led.setData(buffer);
     }
+    led.setData(buffer);
   }
 
-  public void stopLED() {
+  public static void UzunLED() {
+    for (var i = 0; i < buffer.getLength(); i++) {
+      buffer.setRGB(i, 255, 255, 255);
+    }
+    led.setData(buffer);
+  }
+
+  public static void stopLED() {
     for (var i = 0; i < buffer.getLength(); i++) {
       buffer.setRGB(i, 0, 0, 0);
-      led.setData(buffer);
     }
+    led.setData(buffer);
   }
   public void setMor(){
-    stopLED();
     for (var i = 0; i < buffer.getLength(); i++) {
       buffer.setRGB(i, 96, 0, 128);
-      led.setData(buffer);
     }
+    led.setData(buffer);
   }
   public void rightLED(int red, int green, int blue) {
-    stopLED();
     for (var i =10; i <= 17; i++) {
       buffer.setRGB(i, red, green, blue);
     }
@@ -49,7 +54,6 @@ public class Led_Subsystem extends SubsystemBase {
   }
 
   public void leftLED(int red, int green, int blue) {
-    stopLED();
     for (var i = 0; i <= 8; i++){
       buffer.setRGB(i, red, green, blue);
     }
